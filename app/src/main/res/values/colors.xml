@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Letrasprimarias">#3F3F3F</color>
+    <color name="Letrassecundarias">#A4A4A4</color>
+    <color name="Titulo1">#3F3F3F</color>
+    <color name="LetrasRojas">#CE2323</color>
+    <color name="LetrasBlancas">#FFFFFF</color>
+    <color name="LetrasAzules">#0085FF</color>
+    <color name="bg">#E6E6E6</color>
+    <color name="masgris">#616161</color>
+
+
+</resources>

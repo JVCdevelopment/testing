@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">testing</string>
+    <string name="Hello">BIENVENIDO A </string>
+    <string name="Titulo">TRACK FINDER</string>
+    <string name="PrimerNombre"> Nombre </string>
+    <string name="Apellidos"> Apellidos </string>
+    <string name="correo"> Correo electronico </string>
+    <string name="subtitulo"> Ingresa tus credenciales  </string>
+    <string name="contraseña"> Contraseña  </string>
+    <string name="contraoculta"> Contraseña Oculta </string>
+    <string name="contravisible"> Contraseña Visible </string>
+    <string name="terminos">Al continuar aceptas nuestra politica de privacidad y terminos de uso</string>
+    <string name="Boton"> Registrarse </string>
+    <string name="ayuda">¿Necesitas ayuda?.</string>
+    <string name="terminosHeader">Terminos de uso</string>
+    <string name="or">O</string>
+    <string name="al_login">¿Ya tienes cuenta?</string>
+    <string name="login">Inicia sesión</string>
+    <string name="olvidaste">¿Olvidaste tu contraseña?</string>
+    <string name="IniciarSesión">Iniciar Sesión</string>
+
+
+</resources>
