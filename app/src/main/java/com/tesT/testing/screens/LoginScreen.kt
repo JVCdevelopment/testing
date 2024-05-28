@@ -60,10 +60,12 @@ fun LoginScreen(){
                     IngresaTextComponent(value = stringResource(id = R.string.subtitulo))
                     Spacer(modifier = Modifier.height(10.dp))
                     MytextFieldComponent(labelValue = stringResource(id = R.string.correo),
-                        painterResource = painterResource(id = R.drawable.email_icon)
+                       painterResource = painterResource(id = R.drawable.email_icon),
+
+
                     )
                     PasswordtextFieldComponent(labelValue = stringResource(id = R.string.contraseña),
-                        painterResource = painterResource(id = R.drawable.candado_icon)
+                       painterResource = painterResource(id = R.drawable.candado_icon)
                     )
                     Spacer(modifier = Modifier.height(25.dp))
 

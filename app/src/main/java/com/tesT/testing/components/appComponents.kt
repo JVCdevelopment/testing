@@ -147,7 +147,9 @@ fun NecesitasTextComponent(value: String) {
 }
 
 @Composable
-fun MytextFieldComponent(labelValue: String, painterResource: Painter){
+fun MytextFieldComponent(labelValue: String, painterResource: Painter,
+                         onTextSelected: (String) -> Unit
+){
 
     val textValue = rememberSaveable(stateSaver = Saver(
         save = { it },
@@ -169,6 +171,7 @@ fun MytextFieldComponent(labelValue: String, painterResource: Painter){
         maxLines = 1,
         onValueChange = {
              textValue.value = it
+             onTextSelected(it)
         },
         leadingIcon = {
             Icon(painter = painterResource, contentDescription = "")
@@ -180,7 +183,8 @@ fun MytextFieldComponent(labelValue: String, painterResource: Painter){
 }
 
 @Composable
-fun PasswordtextFieldComponent(labelValue: String, painterResource: Painter){
+fun PasswordtextFieldComponent(labelValue: String, painterResource: Painter,
+                               onTextSelected: (String) -> Unit){
 
     val localFocusManager = LocalFocusManager.current
 
@@ -215,6 +219,7 @@ fun PasswordtextFieldComponent(labelValue: String, painterResource: Painter){
         value = password.value,
         onValueChange = {
             password.value = it
+            onTextSelected(it)
         },
         leadingIcon = {
             Icon(painter = painterResource, contentDescription = "")

@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tesT.testing.R
 import com.tesT.testing.components.ButtonComponent
 
@@ -32,6 +33,8 @@ import com.tesT.testing.components.NormalTextComponent
 import com.tesT.testing.components.TituloTextComponent
 import com.tesT.testing.components.IngresaTextComponent
 import com.tesT.testing.components.PasswordtextFieldComponent
+import com.tesT.testing.data.LoginViewModel
+import com.tesT.testing.data.UIEvent
 
 import com.tesT.testing.navigation.Screen
 import com.tesT.testing.navigation.SystemBackButtonHandler
@@ -39,7 +42,7 @@ import com.tesT.testing.navigation.trackFinderAppRouter
 
 
 @Composable
-fun SignUpScreen() {
+fun SignUpScreen(loginViewModel: LoginViewModel = viewModel()) {
 
     Surface (
         modifier = Modifier
@@ -66,18 +69,28 @@ fun SignUpScreen() {
                     IngresaTextComponent(value = stringResource(id = R.string.subtitulo))
 
                     MytextFieldComponent(labelValue = stringResource(id = R.string.PrimerNombre),
-                        painterResource = painterResource(id = R.drawable.noun_profile_709597)
+                        painterResource = painterResource(id = R.drawable.noun_profile_709597),
+                        onTextSelected = {
+                        loginViewModel.onEvent(UIEvent.PrimerNombreChanged(it))
+                        }
                         )
                     MytextFieldComponent(labelValue = stringResource(id = R.string.Apellidos),
-                        painterResource = painterResource(id = R.drawable.noun_profile_709597)
+                        painterResource = painterResource(id = R.drawable.noun_profile_709597),
+                        onTextSelected = {
+                        loginViewModel.onEvent(UIEvent.ApellidosChanged(it))
+                        }
                         )
                     MytextFieldComponent(labelValue = stringResource(id = R.string.correo),
-                        painterResource = painterResource(id = R.drawable.email_icon)
-
+                        painterResource = painterResource(id = R.drawable.email_icon),
+                        onTextSelected = {
+                        loginViewModel.onEvent(UIEvent.CorreoChanged(it))
+                        }
                         )
                     PasswordtextFieldComponent(labelValue = stringResource(id = R.string.contraseña),
-                        painterResource = painterResource(id = R.drawable.candado_icon)
-
+                        painterResource = painterResource(id = R.drawable.candado_icon),
+                        onTextSelected = {
+                        loginViewModel.onEvent(UIEvent.contraseñaChanged(it))
+                        }
                         )
                     Checkboxcomponent(value = stringResource(id = R.string.terminos),
                         onTextSelected = {
