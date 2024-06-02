@@ -6,4 +6,10 @@ sealed class UIEvent(){
     data class ApellidosChanged(val Apellidos: String) : UIEvent()
     data class CorreoChanged(val correo: String) : UIEvent()
     data class contraseñaChanged(val contraseña: String) : UIEvent()
+
+    data class PrivacyPolicyCheckBoxClicked (val status: Boolean) : UIEvent()
+
+    object RegisterButtonClicked : UIEvent(){
+
+    }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "502247963096",
+    "project_id": "trackfinderdb",
+    "storage_bucket": "trackfinderdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502247963096:android:8bde29d8649b13c6e7daad",
+        "android_client_info": {
+          "package_name": "com.tesT.testing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkULYSe3S3drUyMQkfhj6LuUPjWEU6nnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
