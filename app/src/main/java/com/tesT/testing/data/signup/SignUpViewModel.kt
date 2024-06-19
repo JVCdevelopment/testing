@@ -7,10 +7,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.tesT.testing.data.rules.Validator
 import com.tesT.testing.navigation.Screen
 import com.tesT.testing.navigation.trackFinderAppRouter
-import com.tesT.testing.screens.HomeScreen
 
-class LoginViewModel : ViewModel() {
-    private val TAG = LoginViewModel::class.simpleName
+class SignUpViewModel : ViewModel() {
+    private val TAG = SignUpViewModel::class.simpleName
 
     var registrationUIState = mutableStateOf(RegistrationUIState())
 
@@ -18,11 +17,11 @@ class LoginViewModel : ViewModel() {
 
     var signUpInProgress = mutableStateOf(false)
 
-    fun onEvent (event: UIEvent){
+    fun onEvent (event: SignUpUIEvent){
         validateDataWithRules()
         when(event) {
 
-            is UIEvent.PrimerNombreChanged -> {
+            is SignUpUIEvent.PrimerNombreChanged -> {
                 registrationUIState.value = registrationUIState.value.copy(
                     PrimerNombre = event.PrimerNombre
                 )
@@ -31,7 +30,7 @@ class LoginViewModel : ViewModel() {
 
             }
 
-            is UIEvent.ApellidosChanged -> {
+            is SignUpUIEvent.ApellidosChanged -> {
                 registrationUIState.value = registrationUIState.value.copy(
                     Apellidos = event.Apellidos
                 )
@@ -39,25 +38,25 @@ class LoginViewModel : ViewModel() {
                 printstate()
             }
 
-            is UIEvent.CorreoChanged -> {
+            is SignUpUIEvent.CorreoChanged -> {
                 registrationUIState.value = registrationUIState.value.copy(
                     correo = event.correo
                 )
                 printstate()
             }
 
-            is UIEvent.contraseñaChanged -> {
+            is SignUpUIEvent.contraseñaChanged -> {
                 registrationUIState.value = registrationUIState.value.copy(
                     contraseña = event.contraseña
                 )
                 printstate()
             }
 
-            is UIEvent.RegisterButtonClicked -> {
+            is SignUpUIEvent.RegisterButtonClicked -> {
                 signUp()
             }
 
-            is UIEvent.PrivacyPolicyCheckBoxClicked ->{
+            is SignUpUIEvent.PrivacyPolicyCheckBoxClicked ->{
                 registrationUIState.value = registrationUIState.value.copy(
                     privacyPolicyAccepted = event.status
                 )
@@ -132,7 +131,7 @@ class LoginViewModel : ViewModel() {
                 Log.d(TAG, "isSuccesful = ${it.isSuccessful}")
                 signUpInProgress.value = false
                 if(it.isSuccessful){
-                    trackFinderAppRouter.navigateTo(Screen.HomeScreen)
+                    trackFinderAppRouter.navigateTo(Screen.LoginScreen)
 
                 }
             }
@@ -145,23 +144,7 @@ class LoginViewModel : ViewModel() {
             }
     }
 
-    fun logout(){
-        val firebaseAuth = FirebaseAuth.getInstance()
 
-        firebaseAuth.signOut()
-
-        val authStateListener = FirebaseAuth.AuthStateListener {
-            if(it.currentUser == null){
-                    Log.d(TAG, "inside Cerrar Sesion")
-                    trackFinderAppRouter.navigateTo(Screen.LoginScreen)
-            }else{
-                Log.d(TAG, "no se pudo cerrar sesion")
-            }
-        }
-        firebaseAuth.addAuthStateListener(authStateListener)
-
-
-    }
 
 
 }
